@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <title>randomur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33204094-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+	</script>
+	
+	
+  </head>
+
+  <body onload="generateLink()">
+
+  
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+    <div id="header" class="row-fluid">
+		<div class="span12">
+			<p><img id="title" src="../assets/title.png" /></p>
+			<hr />
+		</div>
+    </div>
+	<div id="content" class="row-fluid">
+		<div id="buttons" class="span12">
+			<p id="clicked" style="text-align:center">0</p>
+			<div id="formbox">
+				<a class="button" id="button" onclick="generateLink()">Click to load another image</a>
+				<p>(or click the image)</p>
+			</div>
+			<div id="linktext"><a href="http://i.imgur.com/4jQBO" target="_blank">http://i.imgur.com/4jQBO</a></div>
+			<!--<p id="info">(click link to open in a new window)</p>-->
+		</div>
+	</div>
+	<div id="pictures" class="row-fluid">
+		<div id="image" class="span12">
+			<img id="loader" src="loading10.gif" onclick="generateLink()" style="visibility:hidden"/>
+			<br />
+			<!--<img id="spacer" src="../assets/1/space.jpg" />-->
+			<br />
+			<img id="link" src="" onload="checkSize()" onclick="generateLink()"/>
+			<br />
+		</div>
+	</div>
+	<br />
+	<hr />
+	<div class="row-fluid">
+		<div id="footer" class="span12">
+			<div class="fb-like" data-href="http://www.randomur.com" data-send="true" data-width="450" data-show-faces="false" data-font="lucida grande"></div>
+			<p >2012 ouroborosityATgmailDOTcom <br /> Randomur is a random button for imgur images, and is not responsible for content loaded from external sources. Seriously, I can't control the things you might see when you hit that button, okay?</p>
+		</div>
+	</div>
+	
+	
+	
+	<script type="text/javascript">
+function generateLink()
+{
+	document.getElementById("link").style.visibility="hidden";
+	document.getElementById("loader").style.visibility="visible";
+	<!--document.getElementById("spacer").style.display="inline";
+	var str = 'ABCDEFGHIJKLMMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var strOut = '';
+	var before = "http://i.imgur.com/";
+	var after = ".jpg";
+	for(i=0; i < 5; i++)
+		{
+			strOut += str.charAt(Math.floor(Math.random()*str.length));
+        }
+		var totalStr = before + strOut + after;
+		var safeStr = before + strOut;
+		document.getElementById("linktext").innerHTML = "<a href="+safeStr+" target=_blank>"+safeStr+"</a>";
+
+		document.getElementById("link").src = totalStr;
+}
+
+function checkSize()
+{
+	var img = document.getElementById("link");
+	var width = img.clientWidth;
+	var height = img.clientHeight;
+	if(width==161 && height==81)
+		{
+			generateLink();
+		}
+	else if(width<50 || height<50)
+		{
+			generateLink();
+		}
+	else
+		{
+		
+		document.getElementById("loader").style.visibility="hidden";
+		document.getElementById("link").style.visibility="visible";
+		<!--document.getElementById("spacer").style.display="none";-->
+		document.getElementById("linktext").target="_blank";
+		documentClick();
+		}
+}
+
+
+var clickCount = "";
+function documentClick(){
+	document.getElementById('clicked').innerHTML = ++clickCount;
+	set_cookie( "counter", "", 30 );
+}
+
+
+function set_cookie ( cookie_name, cookie_value,
+    lifespan_in_days, valid_domain )
+{
+    // http://www.thesitewizard.com/javascripts/cookies.shtml
+    var domain_string = valid_domain ?
+                       ("; domain=" + valid_domain) : '' ;
+    document.cookie = cookie_name +
+                       "=" + clickCount +
+                       "; max-age=" + 60 * 60 *
+                       24 * lifespan_in_days +
+                       "; path=/" + domain_string ;
+}
+
+
+
+</script>
+
+  </body>
+</html>
